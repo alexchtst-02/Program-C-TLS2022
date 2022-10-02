@@ -1,0 +1,85 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+
+int main(){
+    float N, Nt, t, T, waktu;
+    int pilihan;
+    char sentinel;
+    cout << "run program(y/n)? ";
+    cin >> sentinel;
+
+    while(sentinel == 'y'){
+        /* manampilkan list/pilihan */
+        cout << "=======================================================" << endl;
+        cout << "pilih salah satu" << endl;
+        cout << "list bahan analisis: " << endl;
+        cout << "0. pilihan lain" << endl;
+        cout << "1. Carbon-14: " << endl;
+        cout << "2. Nitrogen-14: " << endl;
+        cout << "=======================================================" << endl;
+        cout << "pilih list(hanya angka saja): ";
+        cin >> pilihan;
+
+        if(pilihan == 1){
+            cout << "masukan jumlah awal analisis bahan(g): "; cin >> N;
+            cout << "masukan jumlah akhir analisis bahan(g): "; cin >> Nt;
+            T = 5730;
+            waktu = T*(log(2)/log(N/Nt));
+            if(log(N/Nt) == log(2)){
+                cout << "usia fosil adalah " << T << endl;
+            }
+            else if(log(N/Nt) == 0){
+                cout << "usia fosil adalah baru" << endl;
+            }
+            else{
+                cout << "usia fosil adalah " << waktu << " tahun" << endl;
+            }
+
+        }
+
+        else if(pilihan == 2){
+            cout << "masukan jumlah awal analisis bahan(g): "; cin >> N;
+            cout << "masukan jumlah akhir analisis bahan(g): "; cin >> Nt;
+            T = 5700;
+            waktu = T*(log(2)/log(N/Nt));
+            if(log(N/Nt) == log(2)){
+                cout << "usia fosil adalah " << T << endl;
+            }
+            else if(log(N/Nt) == 0){
+                cout << "usia fosil adalah baru" << endl;
+            }
+            else{
+                cout << "usia fosil adalah " << waktu << " tahun" << endl;
+            }
+
+        }
+
+        else if(pilihan == 0){
+            cout << "masukan jumlah awal analisis bahan(g): "; cin >> N;
+            cout << "masukan jumlah akhir analisis bahan(g): "; cin >> Nt;
+            cout << "masukan nilai dari waktu paruh(tahun): ";
+            cin >> T;
+            waktu = T*(log(2)/log(N/Nt));
+
+            if(log(N/Nt) == log(2)){
+                cout << "usia fosil adalah " << T << endl;
+            }
+            else if(log(N/Nt) == 0){
+                cout << "usia fosil adalah baru" << endl;
+            }
+            else{
+                cout << "usia fosil adalah " << waktu << " tahun" << endl;
+            }            
+        }
+        
+        else{
+            cout << "pilihan tidak tersedia ";
+        }
+        
+        cout << "run program(y/n)? ";
+        cin >> sentinel;
+    }
+    return 0;
+}
